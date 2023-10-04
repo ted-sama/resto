@@ -1,0 +1,68 @@
+/*
+Auteurs : BTS SIO Ensup 2023 2024
+Fichier CSS pour la page admin.php
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*CSS pour le pied de page*/
+/*Couleur du fond de la section en #0984e3*/
+.footer{
+    background-color: #0984e3;
+}
+
+/*CSS pour les menus*/
+.menu{
+    border-bottom: 2px solid whitesmoke ;/*Couleur du contour de la section*/
+}
+.menu ul li a:hover{
+    color: #00cec9; /*Couleur du lien quand l'utilisateur se positionne dessus*/
+}
+.menu ul{
+    list-style-type: none
+}
+.menu ul li{
+    display: inline;
+    padding: 1%;
+}
+
+/*CSS pour la section principale*/
+.main-content{
+    margin: 1% 0; /*Séparation des sections*/
+    padding: 2% 0;
+}
+
+.col-4{
+    width: 18%;
+    background-color: whitesmoke; /*Couleur du fond de la zone des données*/
+    margin: 1%; /*Marge de la zone dans la section*/
+    padding: 2%;
+    float: left;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/*Suppression de la visibilité hypertexte*/
+.menu ul li a{
+    text-decoration: none;
+    font-weight: bold;      /*Fonte en gras*/
+    color: #0984e3;
+}
+
+/*centrage du texte*/
+.text-center{
+    text-align: center;
+}
+
+.wrapper{
+    padding: 1%;
+    width: 85%;
+    margin:0 auto;
+}
