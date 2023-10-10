@@ -16,18 +16,14 @@ try {
 
 ?>
 
-<script>
+<!doctype html>
+<html>
 
-</script>
+<head>
+    <title>Administration du site</title>
+</head>
 
-    <!doctype html>
-    <html>
-
-    <head>
-        <title>Administration du site</title>
-    </head>
-
-    <body>
+<body>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <h1 class="text-2xl text-center mb-5">Administration du site</h1>
@@ -52,43 +48,44 @@ try {
             <a href="add-admin.php" class="btn btn-primary mb-5">Ajouter des utilisateurs</a>
             <table class="table">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Prénom Nom</th>
-                    <th>Utilisateur</th>
-                    <th>Actions</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Prénom Nom</th>
+                        <th>Utilisateur</th>
+                        <th>Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($results as $result) { ?>
-                    <tr>
-                        <td>
-                            <?php echo $nb++; ?>
-                        </td>
-                        <td>
-                            <?php echo $result["full_name"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $result["username"]; ?>
-                        </td>
-                        <td>
-                            <div class="space-y-1">
-                                <a href="update-admin.php?id=<?php echo $result["id"]; ?>"
-                                   class="btn btn-primary">Modifier</a>
-                                <a href="update-password.php?id=<?php echo $result["id"]; ?>"
-                                   class="btn btn-secondary">Modifier le mot de
-                                    passe</a>
-                                <a href="delete-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
-                            </div>
-                    </tr>
-                <?php } ?>
+                    <?php foreach ($results as $result) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $nb++; ?>
+                            </td>
+                            <td>
+                                <?php echo $result["full_name"]; ?>
+                            </td>
+                            <td>
+                                <?php echo $result["username"]; ?>
+                            </td>
+                            <td>
+                                <div class="space-y-1">
+                                    <a href="update-admin.php?id=<?php echo $result["id"]; ?>"
+                                        class="btn btn-primary">Modifier</a>
+                                    <a href="update-password.php?id=<?php echo $result["id"]; ?>"
+                                        class="btn btn-secondary">Modifier le mot de
+                                        passe</a>
+                                    <a href="delete-admin.php?id=<?php echo $result["id"]; ?>"
+                                        class="btn btn-error">Supprimer</a>
+                                </div>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
     </main>
-    </body>
+</body>
 
-    </html>
+</html>
 
 
 <?php include('partials/footer.php'); ?>
