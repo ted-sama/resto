@@ -20,7 +20,7 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
         $file_size = $_FILES['file']['size'];
         $file_tmp_name = $_FILES['file']['tmp_name'];
 
-        move_uploaded_file($file_tmp_name, "../images/food/$file_name");
+        move_uploaded_file($file_tmp_name, "../assets/food/$file_name");
 
         //creation de la requete SQL
         $sql = "INSERT INTO food (title, description, price, image_name, category_id, featured, active) VALUES (:title, :description, :price, :image_name, :category_id, :featured, :active)";

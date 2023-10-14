@@ -43,7 +43,7 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
         $file_size = $_FILES['file']['size'];
         $file_tmp_name = $_FILES['file']['tmp_name'];
 
-        move_uploaded_file($file_tmp_name, "../images/food/$file_name");
+        move_uploaded_file($file_tmp_name, "../assets/food/$file_name");
         $new_image_name = $file_name;
     } else {
         $new_image_name = $current_image_name;
@@ -97,7 +97,7 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
                         </label>
                         <div class="avatar">
                             <div class="w-16 rounded">
-                                <img src="../images/food/<?php echo $current_image_name; ?>" alt="Image du plat" />
+                                <img src="../assets/food/<?php echo $current_image_name; ?>" alt="Image du plat" />
                             </div>
                         </div>
                     </div>

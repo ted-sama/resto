@@ -30,7 +30,7 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
         $file_size = $_FILES['file']['size'];
         $file_tmp_name = $_FILES['file']['tmp_name'];
 
-        move_uploaded_file($file_tmp_name, "../images/category/$file_name");
+        move_uploaded_file($file_tmp_name, "../assets/category/$file_name");
         $new_image_name = $file_name;
     } else {
         $new_image_name = $current_image_name;
@@ -81,7 +81,7 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
                         </label>
                         <div class="avatar">
                             <div class="w-16 rounded">
-                                <img src="../images/category/<?php echo $current_image_name; ?>" alt="Image de la catégorie" />
+                                <img src="../assets/category/<?php echo $current_image_name; ?>" alt="Image de la catégorie" />
                             </div>
                         </div>
                     </div>

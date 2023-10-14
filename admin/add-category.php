@@ -10,7 +10,7 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
         $file_size = $_FILES['file']['size'];
         $file_tmp_name = $_FILES['file']['tmp_name'];
 
-        move_uploaded_file($file_tmp_name, "../images/category/$file_name");
+        move_uploaded_file($file_tmp_name, "../assets/category/$file_name");
 
         //creation de la requete SQL
         $sql = "INSERT INTO category (title, image_name, featured, active) VALUES (:title, :image_name, :featured, :active)";

@@ -63,7 +63,7 @@ try {
                             <div>
                                 <div class="avatar">
                                     <div class="w-16 rounded">
-                                        <img src="../images/category/<?php echo $result["image_name"]; ?>" alt="Image de la catégorie" />
+                                        <img src="../assets/category/<?php echo $result["image_name"]; ?>" alt="Image de la catégorie" />
                                     </div>
                                 </div>
                             </div>
