@@ -1,6 +1,12 @@
 <?php include('partials/menu.php'); ?>
 
 <?php session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: login");
+    exit;
+}
+
 require("../connection.php");
 
 try {
@@ -31,7 +37,6 @@ try {
     $current_category_id = $food["category_id"];
     $current_featured = $food["featured"];
     $current_active = $food["active"];
-
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
@@ -68,7 +73,6 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
         //redirection
         $_SESSION["update"] = "<div class='alert alert-success fade-alert mb-5'><span>Le plat a été modifié avec succès !</span></div>";
         header("Location: manage-alacarte.php");
-
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -83,68 +87,61 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
 </head>
 
 <body>
-<main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
-    <div class="wrapper">
-        <div>
-            <h1 class="text-2xl text-center mb-5">Modifier le plat</h1>
-        </div>
-        <div class="flex justify-center">
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <div>
-                        <label class="label">
-                            <span class="label-text">Image actuelle du plat</span>
-                        </label>
-                        <div class="avatar">
-                            <div class="w-16 rounded">
-                                <img src="../assets/food/<?php echo $current_image_name; ?>" alt="Image du plat" />
+    <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
+        <div class="wrapper">
+            <div>
+                <h1 class="text-2xl text-center mb-5">Modifier le plat</h1>
+            </div>
+            <div class="flex justify-center">
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div>
+                            <label class="label">
+                                <span class="label-text">Image actuelle du plat</span>
+                            </label>
+                            <div class="avatar">
+                                <div class="w-16 rounded">
+                                    <img src="../assets/food/<?php echo $current_image_name; ?>" alt="Image du plat" />
+                                </div>
                             </div>
                         </div>
+                        <form method="POST" enctype="multipart/form-data">
+                            <label class="label">
+                                <span class="label-text">Nom du plat</span>
+                            </label>
+                            <input type="text" name="title" id="title" required value="<?php echo $current_title ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <label class="label">
+                                <span class="label-text">Description du plat</span>
+                            </label>
+                            <input type="text" name="description" id="description" required value="<?php echo $current_description ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <label class="label">
+                                <span class="label-text">Prix du plat</span>
+                            </label>
+                            <input type="text" name="price" id="price" required value="<?php echo $current_price ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <label class="label">
+                                <span class="label-text">Image du plat</span>
+                            </label>
+                            <input type="file" name="file" class="file-input file-input-bordered w-full max-w-xs" />
+                            <select name="category" class="select select-bordered w-full max-w-xs mb-4">
+                                <option disabled>Catégorie</option>
+                                <?php foreach ($category_results as $result) { ?>
+                                    <option value="<?php echo $result["id"]; ?>" <?php if ($result["id"] === $current_category_id) { ?> selected <?php } ?>><?php echo $result["title"]; ?></option>
+                                <?php } ?>
+                            </select>
+                            <label class="label">
+                                <span class="label-text">A l'affiche</span>
+                            </label>
+                            <input type="text" name="featured" id="featured" required value="<?php echo $current_featured ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <label class="label">
+                                <span class="label-text">Actif</span>
+                            </label>
+                            <input type="text" name="active" id="active" required value="<?php echo $current_active ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <div class="card-actions justify-end">
+                                <input type="submit" name="submit" value="Modifier" class="btn btn-primary" />
+                            </div>
+                        </form>
                     </div>
-                    <form method="POST" enctype="multipart/form-data">
-                        <label class="label">
-                            <span class="label-text">Nom du plat</span>
-                        </label>
-                        <input type="text" name="title" id="title" required
-                               value="<?php echo $current_title ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <label class="label">
-                            <span class="label-text">Description du plat</span>
-                        </label>
-                        <input type="text" name="description" id="description" required
-                               value="<?php echo $current_description ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <label class="label">
-                            <span class="label-text">Prix du plat</span>
-                        </label>
-                        <input type="text" name="price" id="price" required
-                               value="<?php echo $current_price ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <label class="label">
-                            <span class="label-text">Image du plat</span>
-                        </label>
-                        <input type="file" name="file" class="file-input file-input-bordered w-full max-w-xs" />
-                        <select name="category" class="select select-bordered w-full max-w-xs mb-4">
-                            <option disabled>Catégorie</option>
-                            <?php foreach ($category_results as $result) { ?>
-                                <option value="<?php echo $result["id"]; ?>" <?php if($result["id"] === $current_category_id) { ?>
-                                    selected <?php } ?>
-                                ><?php echo $result["title"]; ?></option>
-                            <?php } ?>
-                        </select>
-                        <label class="label">
-                            <span class="label-text">A l'affiche</span>
-                        </label>
-                        <input type="text" name="featured" id="featured" required
-                               value="<?php echo $current_featured ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <label class="label">
-                            <span class="label-text">Actif</span>
-                        </label>
-                        <input type="text" name="active" id="active" required
-                               value="<?php echo $current_active ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <div class="card-actions justify-end">
-                            <input type="submit" name="submit" value="Modifier" class="btn btn-primary" />
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
-</main>
+    </main>
 </body>

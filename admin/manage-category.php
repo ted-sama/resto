@@ -1,6 +1,12 @@
 <?php include('partials/menu.php'); ?>
 
 <?php session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: login");
+    exit;
+}
+
 require("../connection.php");
 
 try {
@@ -16,14 +22,14 @@ try {
 
 ?>
 
-    <!doctype html>
-    <html>
+<!doctype html>
+<html>
 
-    <head>
-        <title>Gestion des catégories</title>
-    </head>
+<head>
+    <title>Gestion des catégories</title>
+</head>
 
-    <body>
+<body>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <h1 class="text-2xl text-center mb-5">Gestion des catégories</h1>
@@ -44,54 +50,52 @@ try {
             <a href="add-category.php" class="btn btn-primary mb-5">Ajouter des catégories</a>
             <table class="table">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Image</th>
-                    <th>Nom</th>
-                    <th>A l'affiche</th>
-                    <th>Actif</th>
-                    <th>Actions</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>A l'affiche</th>
+                        <th>Actif</th>
+                        <th>Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($results as $result) { ?>
-                    <tr>
-                        <td>
-                            <?php echo $nb++; ?>
-                        </td>
-                        <td>
-                            <div>
-                                <div class="avatar">
-                                    <div class="w-16 rounded">
-                                        <img src="../assets/category/<?php echo $result["image_name"]; ?>" alt="Image de la catégorie" />
+                    <?php foreach ($results as $result) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $nb++; ?>
+                            </td>
+                            <td>
+                                <div>
+                                    <div class="avatar">
+                                        <div class="w-16 rounded">
+                                            <img src="../assets/category/<?php echo $result["image_name"]; ?>" alt="Image de la catégorie" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td>
-                            <?php echo $result["title"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $result["featured"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $result["active"]; ?>
-                        </td>
-                        <td>
-                            <div class="space-y-1">
-                                <a href="update-category.php?id=<?php echo $result["id"]; ?>"
-                                   class="btn btn-primary">Modifier</a>
-                                <a href="delete-category.php?id=<?php echo $result["id"]; ?>"
-                                   class="btn btn-error">Supprimer</a>
-                            </div>
-                    </tr>
-                <?php } ?>
+                            </td>
+                            <td>
+                                <?php echo $result["title"]; ?>
+                            </td>
+                            <td>
+                                <?php echo $result["featured"]; ?>
+                            </td>
+                            <td>
+                                <?php echo $result["active"]; ?>
+                            </td>
+                            <td>
+                                <div class="space-y-1">
+                                    <a href="update-category.php?id=<?php echo $result["id"]; ?>" class="btn btn-primary">Modifier</a>
+                                    <a href="delete-category.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
+                                </div>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
     </main>
-    </body>
+</body>
 
-    </html>
+</html>
 
 <?php include('partials/footer.php'); ?>

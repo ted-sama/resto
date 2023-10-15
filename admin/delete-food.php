@@ -1,4 +1,10 @@
 <?php session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: login");
+    exit;
+}
+
 require("../connection.php");
 
 try {
@@ -16,5 +22,3 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-
-?>

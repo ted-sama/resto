@@ -1,6 +1,12 @@
 <?php include('partials/menu.php'); ?>
 
 <?php session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: login");
+    exit;
+}
+
 require("../connection.php");
 
 try {
@@ -69,13 +75,10 @@ try {
                             </td>
                             <td>
                                 <div class="space-y-1">
-                                    <a href="update-admin.php?id=<?php echo $result["id"]; ?>"
-                                        class="btn btn-primary">Modifier</a>
-                                    <a href="update-password.php?id=<?php echo $result["id"]; ?>"
-                                        class="btn btn-secondary">Modifier le mot de
+                                    <a href="update-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-primary">Modifier</a>
+                                    <a href="update-password.php?id=<?php echo $result["id"]; ?>" class="btn btn-secondary">Modifier le mot de
                                         passe</a>
-                                    <a href="delete-admin.php?id=<?php echo $result["id"]; ?>"
-                                        class="btn btn-error">Supprimer</a>
+                                    <a href="delete-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
                                 </div>
                         </tr>
                     <?php } ?>

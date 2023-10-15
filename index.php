@@ -1,9 +1,9 @@
-<?php session_start();
+<?php
 require("connection.php");
 
 try {
     //creation de la requete SQL
-    $sql = "SELECT * FROM food WHERE featured = 'True'";
+    $sql = "SELECT * FROM food WHERE featured = 'True' AND active = 'True'";
 
     //execution de la requete
     $featuredFood_results = $conn->query($sql)->fetchAll();
@@ -23,7 +23,7 @@ try {
 
 try {
     //creation de la requete SQL
-    $sql = "SELECT * FROM category WHERE featured = 'True'";
+    $sql = "SELECT * FROM category WHERE active = 'True' ORDER BY RAND() LIMIT 3";
 
     //execution de la requete
     $cat_results = $conn->query($sql)->fetchAll();

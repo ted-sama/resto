@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 require("connection.php");
 
 try {
@@ -27,11 +27,11 @@ try {
     <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-20">
         <div class="mb-12">
-            <h2 class="mt-32 text-4xl font-medium">Catégories</h2>
+            <h2 class="mt-32 text-4xl font-bold">Catégories</h2>
         </div>
         <div class="grid grid-cols-3 gap-x-8 gap-y-10 items-center mt-12">
             <?php foreach ($results as $result) { ?>
-                <div class="h-[20rem] rounded-lg bg-no-repeat bg-cover relative" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.85) 100%), url('assets/category/<?php echo $result["image_name"]; ?>') no-repeat; background-size: cover;">
+                <div class="h-[20rem] rounded-lg bg-no-repeat bg-cover relative shadow-xl" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.85) 100%), url('assets/category/<?php echo $result["image_name"]; ?>') no-repeat; background-size: cover;">
                     <div class="absolute p-6 bottom-0">
                         <h2 class="text-4xl text-white font-semibold mb-4"><?php echo $result["title"]; ?></h2>
                         <a href="foods?category=<?php echo $result["id"]; ?>" class="btn btn-primary">Voir les plats</a>

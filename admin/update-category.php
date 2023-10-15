@@ -1,6 +1,12 @@
 <?php include('partials/menu.php'); ?>
 
 <?php session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: login");
+    exit;
+}
+
 require("../connection.php");
 
 try {
@@ -18,7 +24,6 @@ try {
     $current_image_name = $category["image_name"];
     $current_featured = $category["featured"];
     $current_active = $category["active"];
-
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
@@ -52,7 +57,6 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
         //redirection
         $_SESSION["update"] = "<div class='alert alert-success fade-alert mb-5'><span>La catégorie a été modifiée avec succès !</span></div>";
         header("Location: manage-category.php");
-
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -67,50 +71,47 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
 </head>
 
 <body>
-<main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
-    <div class="wrapper">
-        <div>
-            <h1 class="text-2xl text-center mb-5">Modifier la catégorie</h1>
-        </div>
-        <div class="flex justify-center">
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
-                    <div>
-                        <label class="label">
-                            <span class="label-text">Image actuelle de la catégorie</span>
-                        </label>
-                        <div class="avatar">
-                            <div class="w-16 rounded">
-                                <img src="../assets/category/<?php echo $current_image_name; ?>" alt="Image de la catégorie" />
+    <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
+        <div class="wrapper">
+            <div>
+                <h1 class="text-2xl text-center mb-5">Modifier la catégorie</h1>
+            </div>
+            <div class="flex justify-center">
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div>
+                            <label class="label">
+                                <span class="label-text">Image actuelle de la catégorie</span>
+                            </label>
+                            <div class="avatar">
+                                <div class="w-16 rounded">
+                                    <img src="../assets/category/<?php echo $current_image_name; ?>" alt="Image de la catégorie" />
+                                </div>
                             </div>
                         </div>
+                        <form method="POST" enctype="multipart/form-data">
+                            <label class="label">
+                                <span class="label-text">Nom de la catégorie</span>
+                            </label>
+                            <input type="text" name="title" id="title" required value="<?php echo $current_title ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <label class="label">
+                                <span class="label-text">Image de la catégorie</span>
+                            </label>
+                            <input type="file" name="file" class="file-input file-input-bordered w-full max-w-xs" />
+                            <label class="label">
+                                <span class="label-text">A l'affiche</span>
+                            </label>
+                            <input type="text" name="featured" id="featured" required value="<?php echo $current_featured ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <label class="label">
+                                <span class="label-text">Actif</span>
+                            </label>
+                            <input type="text" name="active" id="active" required value="<?php echo $current_active ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <div class="card-actions justify-end">
+                                <input type="submit" name="submit" value="Modifier" class="btn btn-primary" />
+                            </div>
+                        </form>
                     </div>
-                    <form method="POST" enctype="multipart/form-data">
-                        <label class="label">
-                            <span class="label-text">Nom de la catégorie</span>
-                        </label>
-                        <input type="text" name="title" id="title" required
-                               value="<?php echo $current_title ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <label class="label">
-                            <span class="label-text">Image de la catégorie</span>
-                        </label>
-                        <input type="file" name="file" class="file-input file-input-bordered w-full max-w-xs" />
-                        <label class="label">
-                            <span class="label-text">A l'affiche</span>
-                        </label>
-                        <input type="text" name="featured" id="featured" required
-                               value="<?php echo $current_featured ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <label class="label">
-                            <span class="label-text">Actif</span>
-                        </label>
-                        <input type="text" name="active" id="active" required
-                               value="<?php echo $current_active ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                        <div class="card-actions justify-end">
-                            <input type="submit" name="submit" value="Modifier" class="btn btn-primary" />
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
-</main>
+    </main>
 </body>
