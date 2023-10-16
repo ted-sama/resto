@@ -5,7 +5,6 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Replace this with your own authentication logic
     require("../connection.php");
 
     try {

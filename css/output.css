@@ -8096,6 +8096,10 @@ details.collapse summary::-webkit-details-marker {
   height: 32rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .max-h-64 {
   max-height: 16rem;
 }
@@ -8126,6 +8130,10 @@ details.collapse summary::-webkit-details-marker {
 
 .w-full {
   width: 100%;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .max-w-screen-xl {
@@ -8198,6 +8206,10 @@ details.collapse summary::-webkit-details-marker {
 
 .transform-none {
   transform: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .touch-auto {
@@ -9125,6 +9137,11 @@ details.collapse summary::-webkit-details-marker {
   border-style: none;
 }
 
+.bg-\[\#111519\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 21 25 / var(--tw-bg-opacity));
+}
+
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
@@ -9143,16 +9160,6 @@ details.collapse summary::-webkit-details-marker {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-slate-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#111519\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 21 25 / var(--tw-bg-opacity));
 }
 
 .decoration-slice {
@@ -9901,6 +9908,16 @@ details.collapse summary::-webkit-details-marker {
   }
 }
 
+.checked\:bg-red-500:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.checked\:bg-purple-700:checked {
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 34 206 / var(--tw-bg-opacity));
+}
+
 .hover\:font-bold:hover {
   font-weight: 700;
 }
@@ -9924,23 +9941,13 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (prefers-color-scheme: dark) {
-  .dark\:bg-black\/40 {
-    background-color: rgb(0 0 0 / 0.4);
-  }
-
-  .dark\:bg-gray-900 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-  }
-
-  .dark\:bg-stone-900 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(28 25 23 / var(--tw-bg-opacity));
-  }
-
   .dark\:bg-\[\#111519\] {
     --tw-bg-opacity: 1;
     background-color: rgb(17 21 25 / var(--tw-bg-opacity));
+  }
+
+  .dark\:bg-black\/40 {
+    background-color: rgb(0 0 0 / 0.4);
   }
 }
 

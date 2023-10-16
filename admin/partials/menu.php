@@ -15,6 +15,7 @@
                 <ul class="flex space-x-6">
                     <li><a href="index" class="text-center font-semibold uppercase">Tableau de bord</a></li>
                     <li><a href="manage-admin" class="text-center font-semibold uppercase">Administrateurs</a></li>
+                    <li><a href="manage-user" class="text-center font-semibold uppercase">Utilisateurs</a></li>
                     <li><a href="manage-category" class="text-center font-semibold uppercase">Catégories</a></li>
                     <li><a href="manage-alacarte" class="text-center font-semibold uppercase">La carte</a></li>
                     <li><a href="manage-order" class="text-center font-semibold uppercase">Commandes</a></li>

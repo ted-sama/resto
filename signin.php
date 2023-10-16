@@ -1,14 +1,30 @@
 <?php
 require("connection.php");
 
-if (isset($_POST["submit"])) {
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $phone = $_POST["phone"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+if (isset($_POST["submit"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["phone"]) && isset($_POST["first_name"]) && isset($_POST["last_name"])) {
 
-    mail("teddynsoki@gmail.com", "Contact de $first_name $last_name", $message);
+    try {
+        //creation de la requete SQL
+        $sql = "INSERT INTO user (email, password, phone, first_name, last_name) VALUES (:email, :password, :phone, :first_name, :last_name)";
+        $results = $conn->prepare($sql);
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $phone = $_POST["phone"];
+        $first_name = $_POST["first_name"];
+        $last_name = $_POST["last_name"];
+
+        $results->bindParam(":email", $email);
+        $results->bindParam(":password", $password);
+        $results->bindParam(":phone", $phone);
+        $results->bindParam(":first_name", $first_name);
+        $results->bindParam(":last_name", $last_name);
+        $results->execute();
+
+        //redirection
+        header("Location: index");
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 }
 
 ?>
@@ -28,8 +44,8 @@ if (isset($_POST["submit"])) {
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-20">
         <div class="wrapper">
             <div>
-                <h1 class="text-4xl font-bold text-center mb-8">Contactez nous</h1>
-                <p class="text-center mb-12">Vous avez une question ? Vous souhaitez nous faire part d'une remarque ? N'hésitez pas à nous contacter via le formulaire ci-dessous.</p>
+                <h1 class="text-4xl font-bold text-center mb-8">Créer un compte</h1>
+                <p class="text-center mb-12">Rejoignez MiaMiam dès aujourd'hui et commandez des délicieux plats !</p>
             </div>
             <div class="flex justify-center">
                 <div class="card w-[32rem] bg-base-100 shadow-xl">
@@ -52,11 +68,11 @@ if (isset($_POST["submit"])) {
                             </label>
                             <input type="email" name="email" id="email" required class="input input-bordered w-full max-w-xl mb-4" />
                             <label class="label">
-                                <span class="label-text">Message</span>
+                                <span class="label-text">Mot de passe</span>
                             </label>
-                            <textarea class="textarea textarea-bordered w-full h-64 max-h-64 max-w-xl mb-4" name="message" id="message" required></textarea>
+                            <input type="password" name="password" id="password" required class="input input-bordered w-full max-w-xl mb-4" />
                             <div class="card-actions justify-end">
-                                <input type="submit" name="submit" value="Envoyer" class="btn btn-primary" />
+                                <input type="submit" name="submit" value="Créer un compte" class="btn btn-primary" />
                             </div>
                         </form>
                     </div>

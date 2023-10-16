@@ -98,14 +98,32 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
                                 <span class="label-text">Image de la catégorie</span>
                             </label>
                             <input type="file" name="file" class="file-input file-input-bordered w-full max-w-xs" />
-                            <label class="label">
-                                <span class="label-text">A l'affiche</span>
-                            </label>
-                            <input type="text" name="featured" id="featured" required value="<?php echo $current_featured ?>" class="input input-bordered w-full max-w-xs mb-4" />
-                            <label class="label">
-                                <span class="label-text">Actif</span>
-                            </label>
-                            <input type="text" name="active" id="active" required value="<?php echo $current_active ?>" class="input input-bordered w-full max-w-xs mb-4" />
+                            <div class="mb-4">
+                                <label class="label">
+                                    <span class="label-text">A l'affiche</span>
+                                </label>
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Oui</span>
+                                    <input type="radio" name="featured" value="True" class="radio checked:bg-purple-700" <?php if ($current_featured === "True") { ?> checked <?php } ?> />
+                                </label>
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Non</span>
+                                    <input type="radio" name="featured" value="False" class="radio checked:bg-purple-700" <?php if ($current_featured === "False") { ?> checked <?php } ?> />
+                                </label>
+
+                                <label class="label">
+                                    <span class="label-text">Actif</span>
+                                </label>
+
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Oui</span>
+                                    <input type="radio" name="active" value="True" class="radio checked:bg-purple-700" <?php if ($current_active === "True") { ?> checked <?php } ?> />
+                                </label>
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Non</span>
+                                    <input type="radio" name="active" value="False" class="radio checked:bg-purple-700" <?php if ($current_active === "False") { ?> checked <?php } ?> />
+                                </label>
+                            </div>
                             <div class="card-actions justify-end">
                                 <input type="submit" name="submit" value="Modifier" class="btn btn-primary" />
                             </div>
