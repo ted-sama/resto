@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['shop_phone'] = $user['phone'];
                 $_SESSION['shop_first_name'] = $user['first_name'];
                 $_SESSION['shop_last_name'] = $user['last_name'];
+                $_SESSION['shop_cart'] = array();
                 header('Location: index');
                 exit;
             } else {
@@ -47,7 +48,7 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Se connecter | Miamiam</title>
     <link rel="stylesheet" href="css/output.css" />
 </head>
 

@@ -26,9 +26,9 @@ try {
 
 <body>
     <?php require("components/header.php"); ?>
-    <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-20">
+    <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="mb-12">
-            <h2 class="mt-32 text-4xl font-bold">Catégories</h2>
+            <h2 class="mt-12 text-4xl font-bold">Catégories</h2>
         </div>
         <div class="grid grid-cols-3 gap-x-8 gap-y-10 items-center mt-12">
             <?php foreach ($results as $result) { ?>

@@ -46,7 +46,7 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
 <html>
 
 <head>
-    <title>Ajouter une catégorie</title>
+    <title>Ajouter une catégorie | Miamiam</title>
 </head>
 
 <body>

@@ -50,9 +50,9 @@ if (isset($_GET["category"])) {
 
 <body>
     <?php require("components/header.php"); ?>
-    <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-20">
+    <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="mb-12">
-            <h2 class="mt-32 text-4xl font-bold">La carte</h2>
+            <h2 class="mt-12 text-4xl font-bold">La carte</h2>
         </div>
         <div class="flex space-x-6">
             <a href="foods" class="btn btn-outline btn-accent btn-sm" <?php if (!isset($_GET["category"])) { ?> disabled <?php } ?>>Tout les plats</a>
@@ -69,7 +69,7 @@ if (isset($_GET["category"])) {
                         <p><?php echo $result["description"]; ?></p>
                         <div class="card-actions justify-between items-center">
                             <h2 class="text-xl font-medium"><?php echo $result["price"]; ?>€</h2>
-                            <a href="foods?food=<?php echo $result["id"]; ?>" class="btn btn-primary">Plus de détails</a>
+                            <a href="add-to-cart?quantity=1&id=<?php echo $result["id"]; ?>" class="btn btn-primary">Ajouter au panier</a>
                         </div>
                     </div>
                 </div>

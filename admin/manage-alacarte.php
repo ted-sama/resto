@@ -50,7 +50,7 @@ if (isset($_GET["category"])) {
 <html>
 
 <head>
-    <title>Gestion des plats</title>
+    <title>Gestion des plats | Miamiam</title>
 </head>
 
 <body>
@@ -132,9 +132,10 @@ if (isset($_GET["category"])) {
                             </td>
                             <td>
                                 <div class="space-y-1">
-                                    <a href="update-food.php?id=<?php echo $result["id"]; ?>" class="btn btn-primary">Modifier</a>
-                                    <a href="delete-food.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
+                                    <a href="update-food.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-primary">Modifier</a>
+                                    <a href="delete-food.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-error">Supprimer</a>
                                 </div>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

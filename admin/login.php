@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Connexion administrateur | Miamiam</title>
     <link rel="stylesheet" href="../css/output.css">
 </head>
 

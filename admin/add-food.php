@@ -62,7 +62,7 @@ if (isset($_POST["title"]) && isset($_POST["description"]) && isset($_POST["pric
 <html>
 
 <head>
-    <title>Ajouter un plat</title>
+    <title>Ajouter un plat | Miamiam</title>
 </head>
 
 <body>

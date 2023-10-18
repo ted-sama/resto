@@ -54,7 +54,7 @@ try {
                     <div class="absolute p-12 bottom-0">
                         <h2 class="text-4xl text-white font-semibold mb-4"><?php echo $food_result["title"]; ?></h2>
                         <p class="text-white font-semibold mb-4"><?php echo $food_result["description"]; ?></p>
-                        <a href="#" class="btn btn-primary">Commander</a>
+                        <a href="add-to-cart?quantity=1&id=<?php echo $food_result["id"]; ?>" class="btn btn-primary">Ajouter au panier</a>
                     </div>
                 </div>
             <?php } ?>
@@ -71,7 +71,7 @@ try {
                             <p><?php echo $result["description"]; ?></p>
                             <div class="card-actions justify-between items-center">
                                 <h2 class="text-xl font-medium"><?php echo $result["price"]; ?>€</h2>
-                                <a href="foods?food=<?php echo $result["id"]; ?>" class="btn btn-primary">Plus de détails</a>
+                                <a href="add-to-cart?quantity=1&id=<?php echo $result["id"]; ?>" class="btn btn-primary">Ajouter au panier</a>
                             </div>
                         </div>
                     </div>

@@ -46,7 +46,7 @@ if (isset($_POST["current_password"]) && isset($_POST["new_password"]) && isset(
 <html>
 
 <head>
-    <title>Modifier le mot de passe</title>
+    <title>Modifier le mot de passe | Miamiam</title>
 </head>
 
 <body>

@@ -51,7 +51,7 @@ if (isset($_POST["username"]) && isset($_POST["full_name"])) {
 <html>
 
 <head>
-    <title>Modifier un utilisateur</title>
+    <title>Modifier un administrateur | Miamiam</title>
 </head>
 
 <body>

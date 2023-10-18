@@ -26,7 +26,7 @@ try {
 <html>
 
 <head>
-    <title>Gestion des catégories</title>
+    <title>Gestion des catégories | Miamiam</title>
 </head>
 
 <body>
@@ -85,9 +85,10 @@ try {
                             </td>
                             <td>
                                 <div class="space-y-1">
-                                    <a href="update-category.php?id=<?php echo $result["id"]; ?>" class="btn btn-primary">Modifier</a>
-                                    <a href="delete-category.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
+                                    <a href="update-category.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-primary">Modifier</a>
+                                    <a href="delete-category.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-error">Supprimer</a>
                                 </div>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

@@ -26,7 +26,7 @@ try {
 <html>
 
 <head>
-    <title>Administration du site</title>
+    <title>Administration du site | Miamiam</title>
 </head>
 
 <body>
@@ -75,11 +75,12 @@ try {
                             </td>
                             <td>
                                 <div class="space-y-1">
-                                    <a href="update-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-primary">Modifier</a>
-                                    <a href="update-password.php?id=<?php echo $result["id"]; ?>" class="btn btn-secondary">Modifier le mot de
+                                    <a href="update-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-primary">Modifier</a>
+                                    <a href="update-password.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-secondary">Modifier le mot de
                                         passe</a>
-                                    <a href="delete-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
+                                    <a href="delete-admin.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-error">Supprimer</a>
                                 </div>
+                            <td>
                         </tr>
                     <?php } ?>
                 </tbody>

@@ -55,7 +55,7 @@ try {
 <html>
 
 <head>
-    <title>Tableau de bord</title>
+    <title>Tableau de bord | Miamiam</title>
 </head>
 
 <body>

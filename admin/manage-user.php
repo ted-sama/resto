@@ -26,7 +26,7 @@ try {
 <html>
 
 <head>
-    <title>Gestion des utilisateurs</title>
+    <title>Gestion des utilisateurs | Miamiam</title>
 </head>
 
 <body>
@@ -34,10 +34,6 @@ try {
         <div class="wrapper">
             <h1 class="text-2xl text-center mb-5">Gestion des utilisateurs</h1>
             <?php
-            if (isset($_SESSION["add"])) {
-                echo $_SESSION["add"];
-                unset($_SESSION["add"]);
-            }
             if (isset($_SESSION["delete"])) {
                 echo $_SESSION["delete"];
                 unset($_SESSION["delete"]);
@@ -46,12 +42,7 @@ try {
                 echo $_SESSION["update"];
                 unset($_SESSION["update"]);
             }
-            if (isset($_SESSION["update-password"])) {
-                echo $_SESSION["update-password"];
-                unset($_SESSION["update-password"]);
-            }
             ?>
-            <a href="add-admin.php" class="btn btn-primary mb-5">Ajouter des utilisateurs</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -79,9 +70,10 @@ try {
                             </td>
                             <td>
                                 <div class="space-y-1">
-                                    <a href="update-user.php?id=<?php echo $result["id"]; ?>" class="btn btn-primary">Modifier</a>
-                                    <a href="delete-user.php?id=<?php echo $result["id"]; ?>" class="btn btn-error">Supprimer</a>
+                                    <a href="update-user.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-primary">Modifier</a>
+                                    <a href="delete-user.php?id=<?php echo $result["id"]; ?>" class="btn btn-sm btn-error">Supprimer</a>
                                 </div>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

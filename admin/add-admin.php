@@ -37,7 +37,7 @@ if (isset($_POST["full_name"]) && isset($_POST["username"]) && isset($_POST["pas
 <html>
 
 <head>
-    <title>Ajouter un utilisateur</title>
+    <title>Ajouter un administrateur | Miamiam</title>
 </head>
 
 <body>
