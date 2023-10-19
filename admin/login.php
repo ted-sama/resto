@@ -26,10 +26,10 @@ if (isset($_POST['submit'])) {
                 header('Location: index');
                 exit;
             } else {
-                $error = 'Invalid username or password';
+                $error = "<div class='alert alert-error fade-alert mb-5'><span>Le nom d'utilisateur ou le mot de passe est incorrect</span></div>";
             }
         } else {
-            $error = 'Invalid username or password';
+            $error = "<div class='alert alert-error fade-alert mb-5'><span>Le nom d'utilisateur ou le mot de passe est incorrect</span></div>";
         }
     } catch (PDOException $e) {
         echo $e->getMessage();

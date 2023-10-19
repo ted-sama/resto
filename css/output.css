@@ -7900,12 +7900,12 @@ details.collapse summary::-webkit-details-marker {
   z-index: 50;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .col-span-1 {
   grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
 }
 
 .float-right {
@@ -7977,12 +7977,32 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 8rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
+}
+
+.ml-12 {
+  margin-left: 3rem;
+}
+
+.mr-12 {
+  margin-right: 3rem;
 }
 
 .box-border {
@@ -8092,8 +8112,8 @@ details.collapse summary::-webkit-details-marker {
   height: 1rem;
 }
 
-.h-44 {
-  height: 11rem;
+.h-40 {
+  height: 10rem;
 }
 
 .h-48 {
@@ -8118,14 +8138,6 @@ details.collapse summary::-webkit-details-marker {
 
 .h-\[32rem\] {
   height: 32rem;
-}
-
-.h-32 {
-  height: 8rem;
-}
-
-.h-40 {
-  height: 10rem;
 }
 
 .max-h-64 {
@@ -8700,16 +8712,16 @@ details.collapse summary::-webkit-details-marker {
   justify-items: stretch;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .gap-x-8 {
@@ -9293,10 +9305,6 @@ details.collapse summary::-webkit-details-marker {
   background-origin: content-box;
 }
 
-.stroke-current {
-  stroke: currentColor;
-}
-
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -9357,6 +9365,10 @@ details.collapse summary::-webkit-details-marker {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .text-left {

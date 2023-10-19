@@ -88,37 +88,54 @@ if (isset($_GET["id"])) {
             <h1 class="text-2xl text-center mb-5">Détails de la commande</h1>
             <div class="grid grid-cols-3">
                 <div class="col-span-1">
-                    <h2 class="text-2xl">Numéro de commande</h2>
-                    <h2 class="text-2xl"><?php echo $order["id"]; ?></h2>
-                    <?php if ($order["status"] === "En attente") { ?>
-                        <div class="badge badge-warning gap-2">
-                            <?php echo $order["status"]; ?>
+                    <h2 class="text-2xl">Commande n° <?php echo $order["id"]; ?></h2>
+                    <div class="mt-2">
+                        <?php if ($order["status"] === "En attente") { ?>
+                            <div class="badge badge-warning gap-2">
+                                <?php echo $order["status"]; ?>
+                            </div>
+                        <?php } else if ($order["status"] === "En cours de livraison") { ?>
+                            <div class="badge badge-primary gap-2">
+                                <?php echo $order["status"]; ?>
+                            </div>
+                        <?php } else if ($order["status"] === "Livrée") { ?>
+                            <div class="badge badge-success gap-2">
+                                <?php echo $order["status"]; ?>
+                            </div>
+                        <?php } else if ($order["status"] === "Annulée") { ?>
+                            <div class="badge badge-error gap-2">
+                                <?php echo $order["status"]; ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <div class="mt-6">
+                        <div class="mb-4">
+                            <p class="font-bold">Nom :</p>
+                            <p><?php echo $user["first_name"]; ?> <?php echo $user["last_name"]; ?></p>
                         </div>
-                    <?php } else if ($order["status"] === "En cours de livraison") { ?>
-                        <div class="badge badge-primary gap-2">
-                            <?php echo $order["status"]; ?>
+                        <div class="mb-4">
+                            <p class="font-bold">Email :</p>
+                            <p><?php echo $user["email"]; ?></p>
                         </div>
-                    <?php } else if ($order["status"] === "Livrée") { ?>
-                        <div class="badge badge-success gap-2">
-                            <?php echo $order["status"]; ?>
+                        <div class="mb-4">
+                            <p class="font-bold">Téléphone :</p>
+                            <p><?php echo $user["phone"]; ?></p>
                         </div>
-                    <?php } else if ($order["status"] === "Annulée") { ?>
-                        <div class="badge badge-error gap-2">
-                            <?php echo $order["status"]; ?>
+                        <div class="mb-4">
+                            <p class="font-bold">Date :</p>
+                            <p><?php echo $order["order_date"]; ?></p>
                         </div>
-                    <?php } ?>
-                    <p>Nom :</p>
-                    <p><?php echo $user["first_name"]; ?> <?php echo $user["last_name"]; ?></p>
-                    <p>Email :</p>
-                    <p><?php echo $user["email"]; ?></p>
-                    <p>Téléphone :</p>
-                    <p><?php echo $user["phone"]; ?></p>
-                    <p>Date :</p>
-                    <p><?php echo $order["order_date"]; ?></p>
-                    <p>Adresse :</p>
-                    <p><?php echo $order["delivery_address"]; ?></p>
+                        <div class="mb-4">
+                            <p class="font-bold">Adresse :</p>
+                            <p><?php echo $order["delivery_address"]; ?></p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="font-bold">Commentaire :</p>
+                            <p><?php echo $order["comment"]; ?></p>
+                        </div>
+                    </div>
                 </div>
-                <table class="table col-span-2">
+                <table class="table col-span-2 ml-12">
                     <thead>
                         <tr>
                             <th></th>

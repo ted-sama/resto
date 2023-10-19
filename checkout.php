@@ -123,7 +123,7 @@ for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
                     <?php } ?>
                 </tbody>
             </table>
-            <div>
+            <div class="ml-12">
                 <div class="card">
                     <div class="flex justify-between">
                         <h2 class="text-2xl font-bold">Total à payer</h2>
