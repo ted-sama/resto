@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 19 oct. 2023 à 12:09
+-- Généré le : jeu. 19 oct. 2023 à 22:08
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -118,17 +118,18 @@ CREATE TABLE IF NOT EXISTS `food_order` (
   `status` varchar(255) NOT NULL,
   `comment` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `food_order`
 --
 
 INSERT INTO `food_order` (`id`, `price`, `user_id`, `delivery_address`, `order_date`, `status`, `comment`) VALUES
-(1, '0.00', 1, '13 rue Guy Moquet, Magny', '0000-00-00 00:00:00', 'En attente', 'livre bien sans sauce katsu chef'),
+(1, '0.00', 1, '13 rue Guy Moquet, Magny', '0000-00-00 00:00:00', 'Annulée', 'livre bien sans sauce katsu chef'),
 (2, '25.80', 1, 'Rue du caca', '0000-00-00 00:00:00', 'En attente', 'livre bien sans mayo'),
-(3, '21.70', 1, 'Rue des Pirouettes', '2023-10-18 18:57:43', 'En attente', 'fanta pomme cassis'),
-(4, '20.70', 2, '7 rue des Mésanges, Eragny', '2023-10-18 22:58:22', 'En attente', 'j\'ai hâte de me régaler, faites en sorte que ca ne soit pas un noir qui fasse ma commande, merci, c\'était ma plus grande peur');
+(3, '21.70', 1, 'Rue des Pirouettes', '2023-10-18 18:57:43', 'Livrée', 'fanta pomme cassis'),
+(4, '20.70', 2, '7 rue des Mésanges, Eragny', '2023-10-18 22:58:22', 'En cours de livraison', 'j\'ai hâte de me régaler, faites en sorte que ca ne soit pas un noir qui fasse ma commande, merci, c\'était ma plus grande peur'),
+(5, '31.70', 1, 'Rue du Cèdre', '2023-10-19 12:15:38', 'Livrée', 'Fraise, framboise, myrtille');
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `in_order` (
   `food_id` int NOT NULL,
   `quantity` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `in_order`
@@ -155,7 +156,9 @@ INSERT INTO `in_order` (`id`, `food_order_id`, `food_id`, `quantity`) VALUES
 (3, 2, 5, 2),
 (4, 3, 6, 2),
 (5, 3, 8, 1),
-(6, 4, 6, 3);
+(6, 4, 6, 3),
+(7, 5, 7, 2),
+(8, 5, 8, 1);
 
 -- --------------------------------------------------------
 

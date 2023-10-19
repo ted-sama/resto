@@ -7961,8 +7961,16 @@ details.collapse summary::-webkit-details-marker {
   margin-bottom: 2rem;
 }
 
+.ml-12 {
+  margin-left: 3rem;
+}
+
 .mr-4 {
   margin-right: 1rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-12 {
@@ -7977,10 +7985,6 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 8rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -7989,20 +7993,8 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 2rem;
 }
 
-.ml-6 {
-  margin-left: 1.5rem;
-}
-
-.ml-8 {
-  margin-left: 2rem;
-}
-
-.ml-12 {
-  margin-left: 3rem;
-}
-
-.mr-12 {
-  margin-right: 3rem;
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .box-border {
@@ -9365,10 +9357,6 @@ details.collapse summary::-webkit-details-marker {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
 }
 
 .text-left {

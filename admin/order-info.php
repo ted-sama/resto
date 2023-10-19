@@ -86,6 +86,12 @@ if (isset($_GET["id"])) {
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <h1 class="text-2xl text-center mb-5">Détails de la commande</h1>
+            <?php
+            if (isset($_SESSION["update"])) {
+                echo $_SESSION["update"];
+                unset($_SESSION["update"]);
+            }
+            ?>
             <div class="grid grid-cols-3">
                 <div class="col-span-1">
                     <h2 class="text-2xl">Commande n° <?php echo $order["id"]; ?></h2>
@@ -135,49 +141,65 @@ if (isset($_GET["id"])) {
                         </div>
                     </div>
                 </div>
-                <table class="table col-span-2 ml-12">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th>Nom</th>
-                            <th>Quantité</th>
-                            <th>Prix</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($order_items as $item) {
-                            foreach ($food_results as $result) {
-                                if ($result["id"] === $item["food_id"]) {
-                                    $order_item = $result;
-                                }
-                            } ?>
+                <div class="col-span-2 ml-12">
+                    <div>
+                        <h2 class="text-2xl">Modifier le statut</h2>
+                        <form class="mt-4" action="update-order.php" method="POST">
+                            <input type="hidden" name="order_id" value="<?php echo $order["id"]; ?>">
+                            <select name="status" class="select select-bordered w-full max-w-xs mb-4">
+                                <option value="En attente" <?php if ($order["status"] === "En attente") echo "selected"; ?>>En attente</option>
+                                <option value="En cours de livraison" <?php if ($order["status"] === "En cours de livraison") echo "selected"; ?>>En cours de livraison</option>
+                                <option value="Livrée" <?php if ($order["status"] === "Livrée") echo "selected"; ?>>Livrée</option>
+                                <option value="Annulée" <?php if ($order["status"] === "Annulée") echo "selected"; ?>>Annulée</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Modifier</button>
+                        </form>
+                    </div>
+                    <h2 class="text-2xl mt-12">Contenu de la commande</h2>
+                    <table class="table mt-4">
+                        <thead>
                             <tr>
-                                <td>
-                                    <?php echo $nb++; ?>
-                                </td>
-                                <td>
-                                    <div>
-                                        <div class="avatar">
-                                            <div class="w-16 rounded">
-                                                <img src="../assets/food/<?php echo $order_item["image_name"]; ?>" alt="Image de la catégorie" />
+                                <th></th>
+                                <th></th>
+                                <th>Nom</th>
+                                <th>Quantité</th>
+                                <th>Prix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($order_items as $item) {
+                                foreach ($food_results as $result) {
+                                    if ($result["id"] === $item["food_id"]) {
+                                        $order_item = $result;
+                                    }
+                                } ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $nb++; ?>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <div class="avatar">
+                                                <div class="w-16 rounded">
+                                                    <img src="../assets/food/<?php echo $order_item["image_name"]; ?>" alt="Image de la catégorie" />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <?php echo $order_item["title"]; ?>
-                                </td>
-                                <td>
-                                    <?php echo $item["quantity"]; ?>
-                                </td>
-                                <td>
-                                    <?php echo $order_item["price"] * $item["quantity"]; ?>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                                    </td>
+                                    <td>
+                                        <?php echo $order_item["title"]; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $item["quantity"]; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $order_item["price"] * $item["quantity"]; ?> €
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div>
                 <h2 class="text-2xl">Prix total</h2>
