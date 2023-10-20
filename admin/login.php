@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION["username"])) {
+    header("Location: index");
+    exit;
+}
+
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

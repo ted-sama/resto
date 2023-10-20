@@ -73,56 +73,91 @@ if (isset($_GET["id"])) {
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="mb-12">
             <h2 class="mt-12 text-4xl font-bold">Détails de commande</h2>
-            <h3 class="mt-2 text-xl font-semibold">Commande n° <?php echo $order["id"]; ?></h2>
 
         </div>
-        <h2 class="text-2xl mt-12">Contenu de la commande</h2>
-        <table class="table mt-4">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>Nom</th>
-                    <th>Quantité</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($order_items as $item) {
-                    foreach ($food_results as $result) {
-                        if ($result["id"] === $item["food_id"]) {
-                            $order_item = $result;
-                        }
-                    } ?>
-                    <tr>
-                        <td>
-                            <?php echo $nb++; ?>
-                        </td>
-                        <td>
-                            <div>
-                                <div class="avatar">
-                                    <div class="w-16 rounded">
-                                        <img src="assets/food/<?php echo $order_item["image_name"]; ?>" alt="Image de la catégorie" />
+        <div class="grid grid-cols-3">
+            <div class="col-span-1">
+                <h2 class="text-2xl">Commande n° <?php echo $order["id"]; ?></h2>
+                <div class="mt-2">
+                    <?php if ($order["status"] === "En attente") { ?>
+                        <div class="badge badge-warning gap-2">
+                            <?php echo $order["status"]; ?>
+                        </div>
+                    <?php } else if ($order["status"] === "En cours de livraison") { ?>
+                        <div class="badge badge-primary gap-2">
+                            <?php echo $order["status"]; ?>
+                        </div>
+                    <?php } else if ($order["status"] === "Livrée") { ?>
+                        <div class="badge badge-success gap-2">
+                            <?php echo $order["status"]; ?>
+                        </div>
+                    <?php } else if ($order["status"] === "Annulée") { ?>
+                        <div class="badge badge-error gap-2">
+                            <?php echo $order["status"]; ?>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="mt-6">
+                    <div class="mb-4">
+                        <p class="font-bold">Date :</p>
+                        <p><?php echo $order["order_date"]; ?></p>
+                    </div>
+                    <div class="mb-4">
+                        <p class="font-bold">Adresse :</p>
+                        <p><?php echo $order["delivery_address"]; ?></p>
+                    </div>
+                    <div class="mb-4">
+                        <p class="font-bold">Commentaire :</p>
+                        <p><?php echo $order["comment"]; ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-2 ml-12">
+                <h2 class="text-2xl">Contenu de la commande</h2>
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>Nom</th>
+                            <th>Quantité</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($order_items as $item) {
+                            foreach ($food_results as $result) {
+                                if ($result["id"] === $item["food_id"]) {
+                                    $order_item = $result;
+                                }
+                            } ?>
+                            <tr>
+                                <td>
+                                    <?php echo $nb++; ?>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="avatar">
+                                            <div class="w-16 rounded">
+                                                <img src="assets/food/<?php echo $order_item["image_name"]; ?>" alt="Image de la catégorie" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <?php echo $order_item["title"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $item["quantity"]; ?>
-                        </td>
-                        <td>
-                            <?php echo $order_item["price"] * $item["quantity"]; ?> €
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-        <div class="mt-8">
-            <h2 class="text-2xl font-bold">Prix total</h2>
-            <h2 class="text-2xl font-bold"><?php echo $total_price; ?> €</h2>
+                                </td>
+                                <td>
+                                    <?php echo $order_item["title"]; ?>
+                                </td>
+                                <td>
+                                    <?php echo $item["quantity"]; ?>
+                                </td>
+                                <td>
+                                    <?php echo $order_item["price"] * $item["quantity"]; ?> €
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </main>
     <?php require("components/footer.php"); ?>

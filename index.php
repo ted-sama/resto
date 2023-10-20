@@ -84,7 +84,7 @@ try {
             <h2 class="mt-32 text-4xl font-medium">Catégories</h2>
             <div class="grid grid-cols-3 gap-8 items-center mt-12">
                 <?php foreach ($cat_results as $cat_result) { ?>
-                    <div class="h-[20rem] rounded-lg bg-no-repeat bg-cover relative shadow-xl" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.85) 100%), url('assets/category/<?php echo $cat_result["image_name"]; ?>') no-repeat; background-size: cover;">
+                    <div class="h-[20rem] rounded-xl bg-no-repeat bg-cover relative shadow-xl" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.85) 100%), url('assets/category/<?php echo $cat_result["image_name"]; ?>') no-repeat; background-size: cover;">
                         <div class="absolute p-6 bottom-0">
                             <h2 class="text-4xl text-white font-semibold mb-4"><?php echo $cat_result["title"]; ?></h2>
                             <a href="foods?category=<?php echo $cat_result["id"]; ?>" class="btn btn-primary">Voir les plats</a>

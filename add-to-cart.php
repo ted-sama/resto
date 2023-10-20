@@ -23,4 +23,10 @@ if (isset($_GET["id"])) {
     }
 }
 
-header("Location: checkout");
+if (isset($_GET["category"])) {
+    $_SESSION["add"] = "<div class='alert alert-success fade-alert mb-5'><span>Le produit a été ajouté au panier avec succès !</span></div>";
+    header("Location: foods?category=" . $_GET["category"]);
+} else {
+    $_SESSION["add"] = "<div class='alert alert-success fade-alert mb-5'><span>Le produit a été ajouté au panier avec succès !</span></div>";
+    header("Location: foods");
+}

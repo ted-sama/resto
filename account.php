@@ -28,7 +28,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vos commandes | Miamiam</title>
+    <title>Mes commandes | Miamiam</title>
     <link rel="stylesheet" href="css/output.css" />
 </head>
 
@@ -36,7 +36,7 @@ try {
     <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="mb-12">
-            <h2 class="mt-12 text-4xl font-bold">Vos commandes</h2>
+            <h2 class="mt-12 text-4xl font-bold">Mes commandes</h2>
         </div>
         <table class="table col-span-2">
             <thead>
@@ -89,7 +89,6 @@ try {
                 <?php } ?>
             </tbody>
         </table>
-        </div>
     </main>
     <?php require("components/footer.php"); ?>
 </body>

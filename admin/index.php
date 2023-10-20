@@ -145,7 +145,7 @@ try {
 
 
                         <div>
-                            <p class="font-medium">Commandes en cours</p>
+                            <p class="font-medium">Commandes en attente</p>
                             <h2 class="text-4xl font-medium">
                                 <?php echo $orderCount ?>
                             </h2>

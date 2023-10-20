@@ -16,9 +16,6 @@
                 <a href="contact">
                     <span class="text-center font-semibold uppercase">Contact</span>
                 </a>
-                <a href="admin">
-                    <span class="text-center font-semibold uppercase">Panneau d'administration</span>
-                </a>
             </div>
         </div>
     </footer>

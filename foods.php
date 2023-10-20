@@ -54,12 +54,23 @@ if (isset($_GET["category"])) {
         <div class="mb-12">
             <h2 class="mt-12 text-4xl font-bold">La carte</h2>
         </div>
+        <?php
+        if (isset($_SESSION["add"])) {
+            echo $_SESSION["add"];
+            unset($_SESSION["add"]);
+        }
+        ?>
         <div class="flex space-x-6">
             <a href="foods" class="btn btn-outline btn-accent btn-sm" <?php if (!isset($_GET["category"])) { ?> disabled <?php } ?>>Tout les plats</a>
             <?php foreach ($cat_results as $result) { ?>
                 <a href="foods?category=<?php echo $result["id"] ?>" class="btn btn-outline btn-accent btn-sm" <?php if (isset($_GET["category"]) && $_GET["category"] === $result["id"]) { ?> disabled <?php } ?>><?php echo $result["title"] ?></a>
             <?php } ?>
         </div>
+        <?php if (isset($_GET["category"]) && $food_results->rowCount() === 0) { ?>
+            <div class="flex justify-center items-center mt-12">
+                <h2 class="text-2xl font-bold">Aucun résultat</h2>
+            </div>
+        <?php } ?>
         <div class="grid grid-cols-3 gap-x-8 gap-y-10 items-center mt-12">
             <?php foreach ($food_results as $result) { ?>
                 <div class="card h-[28rem] bg-base-100 shadow-xl">
