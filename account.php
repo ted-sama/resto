@@ -84,7 +84,7 @@ try {
                             <?php } ?>
                         </td>
                         <td>
-                            caca
+                            <a href="order-details?id=<?php echo $order["id"]; ?>" class="btn btn-sm btn-primary">Voir</a>
                     </tr>
                 <?php } ?>
             </tbody>
