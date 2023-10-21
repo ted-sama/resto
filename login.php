@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
         <div class="wrapper">
             <div>
                 <h1 class="text-4xl font-bold text-center mb-8">Se connecter</h1>
-                <p class="text-center mb-12">Connectez vous pour commander vous succulents plats !</p>
+                <p class="text-center mb-12">Connectez vous pour commander des plats succulents !</p>
             </div>
             <div class="flex justify-center">
                 <div class="card w-[32rem] bg-base-100 shadow-xl">
