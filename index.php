@@ -50,7 +50,7 @@ try {
         <section>
             <!-- featured food card -->
             <?php foreach ($featuredFood_results as $food_result) { ?>
-                <div class="w-full h-[32rem] rounded-lg bg-no-repeat bg-cover relative" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.85) 100%), url('assets/category/<?php echo $food_result["image_name"]; ?>') no-repeat; background-size: cover;">
+                <div class="w-full h-[32rem] rounded-lg bg-no-repeat bg-cover relative" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.85) 100%), url('assets/food/<?php echo $food_result["image_name"]; ?>') no-repeat; background-size: cover;">
                     <div class="absolute p-12 bottom-0">
                         <h2 class="text-4xl text-white font-semibold mb-4"><?php echo $food_result["title"]; ?></h2>
                         <p class="text-white font-semibold mb-4"><?php echo $food_result["description"]; ?></p>
