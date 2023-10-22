@@ -103,7 +103,7 @@ for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
                                         </svg>
                                     </a>
                                     <span><?php echo $quantity; ?></span>
-                                    <a href="add-to-cart?quantity=1&id=<?php echo $cart_item["id"]; ?>" class="btn btn-sm btn-square" title="Augmenter la quantité">
+                                    <a href="add-more?quantity=1&id=<?php echo $cart_item["id"]; ?>" class="btn btn-sm btn-square" title="Augmenter la quantité">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-black">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                         </svg>
