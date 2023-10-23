@@ -151,7 +151,7 @@ if (isset($_GET["id"])) {
                                     <?php echo $item["quantity"]; ?>
                                 </td>
                                 <td>
-                                    <?php echo $order_item["price"] * $item["quantity"]; ?> €
+                                    <?php echo number_format(($order_item["price"] * $item["quantity"]), 2); ?> €
                                 </td>
                             </tr>
                         <?php } ?>

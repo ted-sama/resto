@@ -193,7 +193,7 @@ if (isset($_GET["id"])) {
                                         <?php echo $item["quantity"]; ?>
                                     </td>
                                     <td>
-                                        <?php echo $order_item["price"] * $item["quantity"]; ?> €
+                                        <?php echo number_format(($order_item["price"] * $item["quantity"]), 2); ?> €
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -203,7 +203,7 @@ if (isset($_GET["id"])) {
             </div>
             <div>
                 <h2 class="text-2xl">Prix total</h2>
-                <h2 class="text-2xl"><?php echo $total_price; ?> €</h2>
+                <h2 class="text-2xl"><?php echo number_format($total_price, 2); ?> €</h2>
             </div>
         </div>
     </main>
