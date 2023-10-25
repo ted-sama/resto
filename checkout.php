@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 require("connection.php");
 
 if (!isset($_SESSION["shop_email"])) {
@@ -7,40 +6,30 @@ if (!isset($_SESSION["shop_email"])) {
     exit;
 }
 
-$test = array(
-    0 => array(
-        "id" => 1,
-        "quantity" => 2
-    ),
-    1 => array(
-        "id" => 2,
-        "quantity" => 1
-    ),
-    2 => array(
-        "id" => 3,
-        "quantity" => 1
-    )
-);
-
 try {
     //creation de la requete SQL
     $sql = "SELECT * FROM food";
 
     //execution de la requete
-    $food_results = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    $food_results = $conn->query($sql)->fetchAll();
     $nb = 1;
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
 
 $total_price = 0;
-for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
-    foreach ($food_results as $result) {
-        if ($result["id"] === $_SESSION["shop_cart"][$i]["id"]) {
-            $total_price += $result["price"] * $_SESSION["shop_cart"][$i]["quantity"];
+if (!empty($food_results) && !empty($_SESSION["shop_cart"])) {
+    for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
+        foreach ($food_results as $result) {
+            if ($result["id"] === $_SESSION["shop_cart"][$i]["id"] && $_SESSION["shop_cart"][$i]["quantity"] > 0 && $result["price"] > 0) {
+                $total_price += $result["price"] * $_SESSION["shop_cart"][$i]["quantity"];
+            }
         }
     }
 }
+
+$quantity = null;
+$cart_item = null;
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +100,7 @@ for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
                                 </div>
                             </td>
                             <td>
-                                <?php echo $cart_item["price"] * $quantity; ?> €
+                                <?php echo number_format(($cart_item["price"] * $quantity), 2); ?> €
                             </td>
                             <td>
                                 <a href="delete-from-cart?id=<?php echo $cart_item["id"]; ?>" class="btn btn-sm btn-square" title="Supprimer du panier">
@@ -127,7 +116,7 @@ for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
                 <div class="card">
                     <div class="flex justify-between">
                         <h2 class="text-2xl font-bold">Total à payer</h2>
-                        <h2 class="text-2xl font-bold"><?php echo $total_price; ?> €</h2>
+                        <h2 class="text-2xl font-bold"><?php echo number_format($total_price, 2); ?> €</h2>
                     </div>
                     <div class="flex justify-center mt-8">
                         <a href="order" class="btn btn-primary">Payer</a>

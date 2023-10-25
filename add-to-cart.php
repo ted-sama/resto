@@ -13,13 +13,13 @@ if (isset($_GET["id"])) {
     $found = false;
     for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
         if ($_SESSION["shop_cart"][$i]["id"] == $id) {
-            $_SESSION["shop_cart"][$i]["quantity"] += $quantity;
+            $_SESSION["shop_cart"][$i]["quantity"] += (int)$quantity;
             $found = true;
         }
     }
 
     if (!$found) {
-        array_push($_SESSION["shop_cart"], array("id" => $id, "quantity" => $quantity));
+        array_push($_SESSION["shop_cart"], array("id" => (int)$id, "quantity" => (int)$quantity));
     }
 }
 

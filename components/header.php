@@ -5,7 +5,7 @@
 <body>
     <header class="bg-amber-50 w-full top-0 z-50 sticky">
         <div class="flex items-center space-x-8 px-8">
-            <a href="/resto">
+            <a href="/">
                 <img src="assets/logo/miamiam_logo.svg" class=" w-28" alt="">
             </a>
             <div class="flex w-full justify-between">

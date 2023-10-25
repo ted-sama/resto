@@ -1,3 +1,2 @@
 <?php
-define('BASEURL', 'http://localhost/resto/');
-?>
+define('BASEURL', 'http://localhost');
