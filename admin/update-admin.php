@@ -1,6 +1,4 @@
 <?php session_start();
-include('partials/menu.php');
-
 if (!isset($_SESSION["username"])) {
     header("Location: login");
     exit;
@@ -55,6 +53,7 @@ if (isset($_POST["username"]) && isset($_POST["full_name"])) {
 
 <body>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
+        <?php require("components/header.php"); ?>
         <div class="wrapper">
             <div>
                 <h1 class="text-2xl text-center mb-5">Modifier un utilisateur</h1>
@@ -79,4 +78,5 @@ if (isset($_POST["username"]) && isset($_POST["full_name"])) {
                 </div>
             </div>
     </main>
+    <?php require("components/footer.php"); ?>
 </body>

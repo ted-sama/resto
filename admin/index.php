@@ -1,5 +1,4 @@
 <?php session_start();
-include('partials/menu.php');
 
 if (!isset($_SESSION["username"])) {
     header("Location: login");
@@ -68,6 +67,7 @@ try {
 </head>
 
 <body>
+    <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <h1 class="text-2xl text-center mb-5">Bienvenue, <?php echo $_SESSION["fullname"] ?></h1>
@@ -147,9 +147,7 @@ try {
             </div>
         </div>
     </main>
+    <?php require("components/footer.php"); ?>
 </body>
 
 </html>
-
-
-<?php include('partials/footer.php'); ?>

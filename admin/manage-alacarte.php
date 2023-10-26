@@ -1,6 +1,4 @@
 <?php session_start();
-include('partials/menu.php');
-
 if (!isset($_SESSION["username"])) {
     header("Location: login");
     exit;
@@ -53,6 +51,7 @@ if (isset($_GET["category"])) {
 </head>
 
 <body>
+    <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <h1 class="text-2xl text-center mb-5">Gestion des plats</h1>
@@ -141,8 +140,7 @@ if (isset($_GET["category"])) {
             </table>
         </div>
     </main>
+    <?php require("components/footer.php"); ?>
 </body>
 
 </html>
-
-<?php include('partials/footer.php'); ?>

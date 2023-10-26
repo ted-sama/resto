@@ -1,6 +1,4 @@
 <?php session_start();
-include('partials/menu.php');
-
 if (!isset($_SESSION["username"])) {
     header("Location: login");
     exit;

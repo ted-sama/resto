@@ -113,13 +113,15 @@ $cart_item = null;
                 </tbody>
             </table>
             <div class="ml-12">
-                <div class="card">
-                    <div class="flex justify-between">
-                        <h2 class="text-2xl font-bold">Total à payer</h2>
-                        <h2 class="text-2xl font-bold"><?php echo number_format($total_price, 2); ?> €</h2>
-                    </div>
-                    <div class="flex justify-center mt-8">
-                        <a href="order" class="btn btn-primary">Payer</a>
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <div class="flex justify-between">
+                            <h2 class="text-2xl font-bold">Total à payer</h2>
+                            <h2 class="text-2xl font-bold"><?php echo number_format($total_price, 2); ?> €</h2>
+                        </div>
+                        <div class="card-actions justify-center mt-32">
+                            <a href="order" class="btn btn-primary w-full">Payer</a>
+                        </div>
                     </div>
                 </div>
             </div>

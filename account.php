@@ -22,7 +22,7 @@ if (!isset($_SESSION["shop_email"])) {
     <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="mb-12">
-            <h2 class="mt-12 text-4xl font-bold">Heureux de vous revoir, <?php echo $_SESSION['shop_first_name'] ?> !</h2>
+            <h2 class="mt-12 text-4xl font-bold">Heureux de vous revoir, <span class="text-primary"><?php echo $_SESSION['shop_first_name'] ?></span> !</h2>
         </div>
         <?php
         if (isset($_SESSION["update"])) {

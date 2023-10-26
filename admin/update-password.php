@@ -1,6 +1,4 @@
 <?php session_start();
-include('partials/menu.php');
-
 if (!isset($_SESSION["username"])) {
     header("Location: login");
     exit;
@@ -49,6 +47,7 @@ if (isset($_POST["current_password"]) && isset($_POST["new_password"]) && isset(
 </head>
 
 <body>
+    <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <div>
@@ -78,6 +77,7 @@ if (isset($_POST["current_password"]) && isset($_POST["new_password"]) && isset(
                 </div>
             </div>
     </main>
+    <?php require("components/footer.php"); ?>
 </body>
 
 </html>

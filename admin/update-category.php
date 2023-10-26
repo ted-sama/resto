@@ -1,6 +1,4 @@
 <?php session_start();
-include('partials/menu.php');
-
 if (!isset($_SESSION["username"])) {
     header("Location: login");
     exit;
@@ -70,6 +68,7 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
 </head>
 
 <body>
+    <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
             <div>
@@ -131,4 +130,5 @@ if (isset($_POST["title"]) && isset($_POST["featured"]) && isset($_POST["active"
                 </div>
             </div>
     </main>
+    <?php require("components/footer.php"); ?>
 </body>
