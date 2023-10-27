@@ -30,7 +30,9 @@ try {
     <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
-            <h1 class="text-2xl text-center mb-5">Administration du site</h1>
+            <div class="mb-12">
+                <h2 class="mt-12 text-4xl font-bold">Administration du site</h2>
+            </div>
             <?php
             if (isset($_SESSION["add"])) {
                 echo $_SESSION["add"];

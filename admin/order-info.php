@@ -83,7 +83,9 @@ if (isset($_GET["id"])) {
     <?php require("components/header.php"); ?>
     <main class="mx-auto min-h-screen max-w-screen-xl px-12 py-8">
         <div class="wrapper">
-            <h1 class="text-2xl text-center mb-5">Détails de la commande</h1>
+            <div class="mb-12">
+                <h2 class="mt-12 text-4xl font-bold">Détails de la commande</h2>
+            </div>
             <?php
             if (isset($_SESSION["update"])) {
                 echo $_SESSION["update"];

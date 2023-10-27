@@ -27,7 +27,7 @@ if (str_contains($route, "checkout")) {
 
 
 <body>
-    <header class="bg-base-100 w-full top-0 z-50 sticky">
+    <header class="bg-base-300 w-full top-0 z-50 sticky">
         <div class="flex items-center space-x-8 px-8">
             <a href="/">
                 <img src="assets/logo/miamiam_logo.svg" class=" w-28" alt="">

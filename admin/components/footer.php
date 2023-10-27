@@ -2,7 +2,7 @@
 <html lang="en">
 
 <body>
-    <footer class="bg-[#111519] dark:bg-[#111519] w-full z-50">
+    <footer class="bg-primary text-white w-full z-50">
         <div class="flex justify-between px-8 py-6">
             <p>
                 <span class="text-center font-semibold uppercase">© 2023 Miamiam</span>
