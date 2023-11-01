@@ -9,21 +9,18 @@ if (!isset($_SESSION["shop_email"])) {
 try {
     //creation de la requete SQL
     $sql = "SELECT * FROM food";
-
     //execution de la requete
-    $food_results = $conn->query($sql)->fetchAll();
+    $food_results = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     $nb = 1;
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
 
 $total_price = 0;
-if (!empty($food_results) && !empty($_SESSION["shop_cart"])) {
-    for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
-        foreach ($food_results as $result) {
-            if ($result["id"] === $_SESSION["shop_cart"][$i]["id"] && $_SESSION["shop_cart"][$i]["quantity"] > 0 && $result["price"] > 0) {
-                $total_price += $result["price"] * $_SESSION["shop_cart"][$i]["quantity"];
-            }
+for ($i = 0; $i < count($_SESSION["shop_cart"]); $i++) {
+    foreach ($food_results as $result) {
+        if ($result["id"] == $_SESSION["shop_cart"][$i]["id"]) {
+            $total_price += ($result["price"] * $_SESSION["shop_cart"][$i]["quantity"]);
         }
     }
 }
@@ -63,7 +60,7 @@ $cart_item = null;
                 <tbody>
                     <?php foreach ($_SESSION["shop_cart"] as $item) {
                         foreach ($food_results as $result) {
-                            if ($result["id"] === $item["id"]) {
+                            if ($result["id"] == $item["id"]) {
                                 $quantity = $item["quantity"];
                                 $cart_item = $result;
                             }
