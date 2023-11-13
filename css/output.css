@@ -9195,11 +9195,6 @@ details.collapse summary::-webkit-details-marker {
   border-style: none;
 }
 
-.bg-\[\#111519\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 21 25 / var(--tw-bg-opacity));
-}
-
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
@@ -9215,9 +9210,9 @@ details.collapse summary::-webkit-details-marker {
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
-.bg-base-200 {
+.bg-base-300 {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--b2) / var(--tw-bg-opacity));
+  background-color: hsl(var(--b3) / var(--tw-bg-opacity));
 }
 
 .bg-categories {
@@ -9248,11 +9243,6 @@ details.collapse summary::-webkit-details-marker {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-base-300 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b3) / var(--tw-bg-opacity));
 }
 
 .decoration-slice {
@@ -10041,13 +10031,6 @@ details.collapse summary::-webkit-details-marker {
 
 .hover\:focus\:text-center:focus:hover {
   text-align: center;
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:bg-\[\#111519\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(17 21 25 / var(--tw-bg-opacity));
-  }
 }
 
 @media (min-width: 640px) {

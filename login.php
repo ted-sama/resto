@@ -81,6 +81,9 @@ if (isset($_POST['submit'])) {
                                 <input type="submit" name="submit" value="Se connecter" class="btn btn-primary" />
                             </div>
                         </form>
+                        <div class="flex text-center mt-4">
+                            <p>Vous n'avez pas de compte ? <a href="signin" class="font-bold underline">Créez votre compte.</a></p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $message = $_POST["message"];
 
-    mail("teddynsoki@gmail.com", "Contact de $first_name $last_name", $message);
+    mail($email, "Contact de $first_name $last_name", $message);
 }
 
 ?>

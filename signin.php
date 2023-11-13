@@ -75,6 +75,9 @@ if (isset($_POST["submit"]) && isset($_POST["email"]) && isset($_POST["password"
                                 <input type="submit" name="submit" value="Créer un compte" class="btn btn-primary" />
                             </div>
                         </form>
+                        <div class="flex justify-center mt-4">
+                            <a href="login" class="font-bold underline">J'ai déja un compte</a>
+                        </div>
                     </div>
                 </div>
             </div>
