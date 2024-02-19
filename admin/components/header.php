@@ -1,7 +1,7 @@
 <?php
 $route = $_SERVER['REQUEST_URI'];
 
-if ($route === "/admin/" || $route === "/admin/index") {
+if ($route == "/resto/admin/" || $route == "/resto/admin/index") {
     $route = "index";
 } else if (str_contains($route, "user")) {
     $route = "users";
